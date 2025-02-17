@@ -25,4 +25,29 @@
     font-weight: bold;
 }
 
+.sectionHeader {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 
+ul {
+    margin: 5px 0;
+}
+
+.experience {
+    margin: 10px 0;
+}
+
+.experienceHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-start;
+}
+
+.position {
+    font-weight: bold;
+}
+
+.company {
+    font-style: italic;
+}

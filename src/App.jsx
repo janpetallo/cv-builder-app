@@ -1,6 +1,6 @@
 import { useState } from "react";
 import GeneralInfoForm from "./components/GeneralInfoForm";
-// import ExperienceForm from "./components/ExperienceForm";
+import ExperienceForm from "./components/ExperienceForm";
 // import EducationForm from "./components/EducationForm";
 import CVPreview from "./components/CVPreview";
 import "./App.css";
@@ -26,6 +26,13 @@ function App() {
           <div className="formSection">
             <GeneralInfoForm cvData={cvData} setCvData={setCvData} />
             <button onClick={handleNext}>Add Experience</button>
+          </div>
+        )}
+
+        {currentSection === 2 && (
+          <div className="formSection">
+            <ExperienceForm cvData={cvData} setCvData={setCvData} />
+            <button onClick={handleNext}>Add Education</button>
           </div>
         )}
 
