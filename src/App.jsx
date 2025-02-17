@@ -41,8 +41,14 @@ function App() {
           </div>
         )}
 
-        {/* <ExperienceForm cvData={cvData} setCvData={setCvData} />
-        <EducationForm cvData={cvData} setCvData={setCvData} /> */}
+        {/* {currentSection === 3 && (
+          <div className="formSection">
+            <EducationForm cvData={cvData} setCvData={setCvData} />
+            <button onClick={handlePrevious}>Previous Section</button>
+          </div>
+        )} */}
+
+        
       </div>
 
       <CVPreview cvData={cvData} />
