@@ -1,0 +1,17 @@
+
+
+.cvContainer {
+  border: 2px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.cvTitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+
