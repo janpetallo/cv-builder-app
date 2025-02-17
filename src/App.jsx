@@ -7,17 +7,32 @@ import "./App.css";
 
 function App() {
   const [cvData, setCvData] = useState({
-    generalInfo: { name: "", email: "", phone: "" },
+    generalInfo: { name: "",address: "", email: "", phone: "" },
     experience: [],
     education: [],
   });
 
+  const [currentSection, setCurrentSection] = useState(1);
+
+  function handleNext() {
+    setCurrentSection(currentSection + 1);
+  }
+
   return (
-    <div >
-      <h1 >CV Builder</h1>
-      <GeneralInfoForm cvData={cvData} setCvData={setCvData} />
-      {/* <ExperienceForm cvData={cvData} setCvData={setCvData} />
-      <EducationForm cvData={cvData} setCvData={setCvData} /> */}
+    <div className="appContainer">
+      <div className="formContainer">
+        <h1 className="appTitle">CV Builder</h1>
+        {currentSection === 1 && (
+          <div className="formSection">
+            <GeneralInfoForm cvData={cvData} setCvData={setCvData} />
+            <button onClick={handleNext}>Add Experience</button>
+          </div>
+        )}
+
+        {/* <ExperienceForm cvData={cvData} setCvData={setCvData} />
+        <EducationForm cvData={cvData} setCvData={setCvData} /> */}
+      </div>
+
       <CVPreview cvData={cvData} />
     </div>
   );

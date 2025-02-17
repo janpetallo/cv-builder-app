@@ -1,17 +1,23 @@
 import "../styles/CVPreview.css";
 
-function CVPreview( { cvData } ) {
+function CVPreview({ cvData }) {
   return (
     <div className="cvContainer">
-      <h2 className="cvTitle">CV Preview</h2>
-      <p>{cvData.generalInfo.name}</p>
-      <p>{cvData.generalInfo.email}</p>
-      <p>{cvData.generalInfo.phone}</p>
+      <div className="cvHeader">
+        <div className="name">{cvData.generalInfo.name}</div>
+        <div>
+          {cvData.generalInfo.address}  |  {cvData.generalInfo.email}  |  {cvData.generalInfo.phone}
+        </div>
+      </div>
+
+
+
+
+
+
+
     </div>
   );
 }
 
 export default CVPreview;
-
-
-
