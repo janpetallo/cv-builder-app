@@ -18,6 +18,10 @@ function App() {
     setCurrentSection(currentSection + 1);
   }
 
+  function handlePrevious() {
+    setCurrentSection(currentSection - 1);
+  }
+
   return (
     <div className="appContainer">
       <div className="formContainer">
@@ -25,14 +29,15 @@ function App() {
         {currentSection === 1 && (
           <div className="formSection">
             <GeneralInfoForm cvData={cvData} setCvData={setCvData} />
-            <button onClick={handleNext}>Add Experience</button>
+            <button onClick={handleNext}>Next Section</button>
           </div>
         )}
 
         {currentSection === 2 && (
           <div className="formSection">
             <ExperienceForm cvData={cvData} setCvData={setCvData} />
-            <button onClick={handleNext}>Add Education</button>
+            <button onClick={handlePrevious}>Previous Section</button>
+            <button onClick={handleNext}>Next Section</button>
           </div>
         )}
 
