@@ -29,22 +29,28 @@ function App() {
         {currentSection === 1 && (
           <div className="formSection">
             <GeneralInfoForm cvData={cvData} setCvData={setCvData} />
-            <button onClick={handleNext}>Next Section</button>
+            <div className="buttonContainer">
+              <button onClick={handleNext}>Next</button>
+            </div>
           </div>
         )}
 
         {currentSection === 2 && (
           <div className="formSection">
             <ExperienceForm cvData={cvData} setCvData={setCvData} />
-            <button onClick={handlePrevious}>Previous Section</button>
-            <button onClick={handleNext}>Next Section</button>
+            <div className="buttonContainer">
+              <button onClick={handlePrevious}>Previous</button>
+              <button onClick={handleNext}>Next</button>
+            </div>
           </div>
         )}
 
         {/* {currentSection === 3 && (
           <div className="formSection">
             <EducationForm cvData={cvData} setCvData={setCvData} />
-            <button onClick={handlePrevious}>Previous Section</button>
+            <div className="buttonContainer">
+            <button onClick={handlePrevious}>Previous</button>
+            </div>
           </div>
         )} */}
 
