@@ -3,7 +3,6 @@ import { useState } from "react";
 
 import editIcon from "../assets/edit.svg";
 import deleteIcon from "../assets/delete.svg";
-import previousIcon from "../assets/previous.svg";
 
 function ExperienceForm({ cvData, setCvData }) {
   const [experience, setExperience] = useState({
@@ -73,6 +72,13 @@ function ExperienceForm({ cvData, setCvData }) {
         ...experience.descriptions,
         { id: crypto.randomUUID(), text: "" },
       ],
+    });
+  }
+
+  function deleteDescription(id) {
+    setExperience({
+      ...experience,
+      descriptions: experience.descriptions.filter((desc) => desc.id !== id),
     });
   }
 
@@ -164,13 +170,21 @@ function ExperienceForm({ cvData, setCvData }) {
               placeholder="End Date"
             />
             {experience.descriptions.map((description) => (
-              <textarea
-                key={description.id}
-                className="inputField"
-                value={description.text}
-                onChange={(e) => handleDescriptionChange(e, description.id)}
-                placeholder="Description"
-              />
+              <div className="descriptionContainer">
+                <textarea
+                  key={description.id}
+                  className="inputField"
+                  value={description.text}
+                  onChange={(e) => handleDescriptionChange(e, description.id)}
+                  placeholder="Description"
+                />
+                <button
+                  type="button"
+                  onClick={() => deleteDescription(description.id)}
+                >
+                  <img src={deleteIcon} alt="Delete" />
+                </button>
+              </div>
             ))}
             <button type="button" onClick={addDescriptionField}>
               Add Description

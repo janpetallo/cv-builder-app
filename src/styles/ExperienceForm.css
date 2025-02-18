@@ -26,12 +26,24 @@ p {
     margin: 0;
 }
 
-.savedExperience button {
+.savedExperience button,
+.descriptionContainer button {
     padding: 0;
     background-color: transparent;
-    cursor: pointer;
 }
 
-.savedExperience img:hover {
+.savedExperience img:hover,
+.descriptionContainer img:hover {
     transform: scale(1.1);
 }
+
+.descriptionContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+
+
+
