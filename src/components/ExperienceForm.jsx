@@ -11,45 +11,76 @@ function ExperienceForm({ cvData, setCvData }) {
     descriptions: [{ id: crypto.randomUUID(), text: "" }],
   });
 
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingId, setEditingId] = useState(null);
+
+  function handleEdit(exp) {
+    setExperience(exp);
+    setIsEditing(true);
+    setEditingId(exp.id);
+  }
+
+  function handleAddExperience() {
+    setIsEditing(false);
+    setEditingId(null);
+    setExperience({
+      id: crypto.randomUUID(),
+      company: "",
+      position: "",
+      startDate: "",
+      endDate: "",
+      descriptions: [{ id: crypto.randomUUID(), text: "" }],
+    });
+  }
+
   function handleChange(e) {
     const { name, value } = e.target;
-    setExperience((prevExperience) => ({
-      ...prevExperience,
+    setExperience({
+      ...experience,
       [name]: value,
-    }));
+    });
   }
 
   function handleDescriptionChange(e, id) {
     const { value } = e.target;
-    setExperience((prevExperience) => {
-      const newDescriptions = prevExperience.descriptions.map((desc) =>
-        desc.id === id ? { ...desc, text: value } : desc
-      );
-      return {
-        ...prevExperience,
-        descriptions: newDescriptions,
-      };
+    const newDescriptions = experience.descriptions.map((desc) =>
+      desc.id === id ? { ...desc, text: value } : desc
+    );
+    setExperience({
+      ...experience,
+      descriptions: newDescriptions,
     });
   }
 
   function addDescriptionField() {
-    setExperience((prevExperience) => ({
-      ...prevExperience,
+    setExperience({
+      ...experience,
       descriptions: [
-        ...prevExperience.descriptions,
+        ...experience.descriptions,
         { id: crypto.randomUUID(), text: "" },
       ],
-    }));
+    });
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    setCvData((prevCvData) => ({
-      ...prevCvData,
-      experience: [...prevCvData.experience, experience],
-    }));
+    if (isEditing) {
+      setCvData((prevCvData) => ({
+        ...prevCvData,
+        experience: prevCvData.experience.map((exp) =>
+          exp.id === editingId ? experience : exp
+        ),
+      }));
+      setIsEditing(false);
+      setEditingId(null);
+    } else {
+      setCvData((prevCvData) => ({
+        ...prevCvData,
+        experience: [...prevCvData.experience, experience],
+      }));
+    }
     setExperience({
-        id: crypto.randomUUID(),
+      id: crypto.randomUUID(),
       company: "",
       position: "",
       startDate: "",
@@ -60,50 +91,78 @@ function ExperienceForm({ cvData, setCvData }) {
 
   return (
     <>
-      <h4>Experience</h4>
-      <form className="formContainer" onSubmit={handleSubmit}>
-        <input
-          className="inputField"
-          name="company"
-          value={experience.company}
-          onChange={handleChange}
-          placeholder="Company"
-        />
-        <input
-          className="inputField"
-          name="position"
-          value={experience.position}
-          onChange={handleChange}
-          placeholder="Position"
-        />
-        <input
-          className="inputField"
-          name="startDate"
-          value={experience.startDate}
-          onChange={handleChange}
-          placeholder="Start Date"
-        />
-        <input
-          className="inputField"
-          name="endDate"
-          value={experience.endDate}
-          onChange={handleChange}
-          placeholder="End Date"
-        />
-        {experience.descriptions.map((description) => (
-          <textarea
-            key={description.id}
-            className="inputField"
-            value={description.text}
-            onChange={(e) => handleDescriptionChange(e, description.id)}
-            placeholder="Description"
-          />
-        ))}
-        <button type="button" onClick={addDescriptionField}>
-          Add Description
-        </button>
-        <button type="submit">Save Experience</button>
-      </form>
+      {cvData.experience.length > 0 && (
+        <>
+          <h4>Saved Experiences</h4>
+          {cvData.experience.map((exp) => (
+            <div key={exp.id} className="savedExperience">
+              <div className="position-company">
+                <div className="position">{exp.position}</div>
+                <div className="company">{exp.company}</div>
+                
+              </div>
+
+              <button type="button" onClick={() => handleEdit(exp)}>
+                Edit
+              </button>
+            </div>
+          ))}
+          <button type="button" onClick={handleAddExperience}>
+            Add Experience
+          </button>
+        </>
+      )}
+
+      {(isEditing || editingId === null) && (
+        <>
+          <h4>{isEditing ? "Edit Experience" : "Add Experience"}</h4>
+          <form className="formContainer" onSubmit={handleSubmit}>
+            <input
+              className="inputField"
+              name="company"
+              value={experience.company}
+              onChange={handleChange}
+              placeholder="Company"
+            />
+            <input
+              className="inputField"
+              name="position"
+              value={experience.position}
+              onChange={handleChange}
+              placeholder="Position"
+            />
+            <input
+              className="inputField"
+              name="startDate"
+              value={experience.startDate}
+              onChange={handleChange}
+              placeholder="Start Date"
+            />
+            <input
+              className="inputField"
+              name="endDate"
+              value={experience.endDate}
+              onChange={handleChange}
+              placeholder="End Date"
+            />
+            {experience.descriptions.map((description) => (
+              <textarea
+                key={description.id}
+                className="inputField"
+                value={description.text}
+                onChange={(e) => handleDescriptionChange(e, description.id)}
+                placeholder="Description"
+              />
+            ))}
+            <button type="button" onClick={addDescriptionField}>
+              Add Description
+            </button>
+            <button type="submit">
+              {isEditing ? "Save Changes" : "Save Experience"}
+            </button>
+          </form>
+        </>
+      )}
     </>
   );
 }
