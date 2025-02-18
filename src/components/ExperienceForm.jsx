@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import editIcon from "../assets/edit.svg";
 import deleteIcon from "../assets/delete.svg";
+import previousIcon from "../assets/previous.svg";
 
 function ExperienceForm({ cvData, setCvData }) {
   const [experience, setExperience] = useState({

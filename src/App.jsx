@@ -5,9 +5,12 @@ import ExperienceForm from "./components/ExperienceForm";
 import CVPreview from "./components/CVPreview";
 import "./App.css";
 
+import previousIcon from "./assets/previous.svg";
+import nextIcon from "./assets/next.svg";
+
 function App() {
   const [cvData, setCvData] = useState({
-    generalInfo: { name: "",address: "", email: "", phone: "" },
+    generalInfo: { name: "", address: "", email: "", phone: "" },
     experience: [],
     education: [],
   });
@@ -30,7 +33,9 @@ function App() {
           <div className="formSection">
             <GeneralInfoForm cvData={cvData} setCvData={setCvData} />
             <div className="buttonContainer">
-              <button onClick={handleNext}>Next</button>
+              <button onClick={handleNext}>
+                <img src={nextIcon} alt="Next" />
+              </button>
             </div>
           </div>
         )}
@@ -39,8 +44,12 @@ function App() {
           <div className="formSection">
             <ExperienceForm cvData={cvData} setCvData={setCvData} />
             <div className="buttonContainer">
-              <button onClick={handlePrevious}>Previous</button>
-              <button onClick={handleNext}>Next</button>
+              <button onClick={handlePrevious}>
+                <img src={previousIcon} alt="Previous" />
+              </button>
+              <button onClick={handleNext}>
+                <img src={nextIcon} alt="Next" />
+              </button>
             </div>
           </div>
         )}
@@ -49,12 +58,12 @@ function App() {
           <div className="formSection">
             <EducationForm cvData={cvData} setCvData={setCvData} />
             <div className="buttonContainer">
-            <button onClick={handlePrevious}>Previous</button>
+            <button onClick={handlePrevious}>
+                <img src={previousIcon} alt="Previous" />
+              </button>
             </div>
           </div>
         )} */}
-
-        
       </div>
 
       <CVPreview cvData={cvData} />
