@@ -13,11 +13,13 @@ function ExperienceForm({ cvData, setCvData }) {
 
   const [isEditing, setIsEditing] = useState(false);
   const [editingId, setEditingId] = useState(null);
+  const [showForm, setShowForm] = useState(false);
 
   function handleEdit(exp) {
     setExperience(exp);
     setIsEditing(true);
     setEditingId(exp.id);
+    setShowForm(true);
   }
 
   function handleAddExperience() {
@@ -31,6 +33,7 @@ function ExperienceForm({ cvData, setCvData }) {
       endDate: "",
       descriptions: [{ id: crypto.randomUUID(), text: "" }],
     });
+    setShowForm(true);
   }
 
   function handleChange(e) {
@@ -87,19 +90,19 @@ function ExperienceForm({ cvData, setCvData }) {
       endDate: "",
       descriptions: [{ id: crypto.randomUUID(), text: "" }],
     });
+    setShowForm(false);
   }
 
   return (
     <>
-      {cvData.experience.length > 0 && (
+      <h4>Work Experience</h4>
+      {cvData.experience.length >= 0 && (
         <>
-          <h4>Saved Experiences</h4>
           {cvData.experience.map((exp) => (
             <div key={exp.id} className="savedExperience">
               <div className="position-company">
                 <div className="position">{exp.position}</div>
                 <div className="company">{exp.company}</div>
-                
               </div>
 
               <button type="button" onClick={() => handleEdit(exp)}>
@@ -113,7 +116,7 @@ function ExperienceForm({ cvData, setCvData }) {
         </>
       )}
 
-      {(isEditing || editingId === null) && (
+      {showForm && (
         <>
           <h4>{isEditing ? "Edit Experience" : "Add Experience"}</h4>
           <form className="formContainer" onSubmit={handleSubmit}>
