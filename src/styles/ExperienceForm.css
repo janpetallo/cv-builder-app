@@ -18,3 +18,20 @@ p {
 .savedExperience .company {
     font-size: 0.7rem;
 }
+
+.savedExperience .buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+}
+
+.savedExperience button {
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.savedExperience img:hover {
+    transform: scale(1.1);
+}

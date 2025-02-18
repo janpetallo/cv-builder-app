@@ -1,6 +1,9 @@
 import "../styles/ExperienceForm.css";
 import { useState } from "react";
 
+import editIcon from "../assets/edit.svg";
+import deleteIcon from "../assets/delete.svg";
+
 function ExperienceForm({ cvData, setCvData }) {
   const [experience, setExperience] = useState({
     id: crypto.randomUUID(),
@@ -111,14 +114,14 @@ function ExperienceForm({ cvData, setCvData }) {
                 <div className="position">{exp.position}</div>
                 <div className="company">{exp.company}</div>
               </div>
-
-              <button type="button" onClick={() => handleEdit(exp)}>
-                Edit
-              </button>
-
-              <button type="button" onClick={() => handleDelete(exp.id)}>
-                Delete
-              </button>
+              <div className="buttonContainer">
+                <button type="button" onClick={() => handleEdit(exp)}>
+                  <img src={editIcon} alt="Edit" />
+                </button>
+                <button type="button" onClick={() => handleDelete(exp.id)}>
+                  <img src={deleteIcon} alt="Delete" />
+                </button>
+              </div>
             </div>
           ))}
           <button type="button" onClick={handleAddExperience}>
