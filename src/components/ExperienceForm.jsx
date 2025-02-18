@@ -22,6 +22,13 @@ function ExperienceForm({ cvData, setCvData }) {
     setShowForm(true);
   }
 
+  function handleDelete(id) {
+    setCvData((prevCvData) => ({
+      ...prevCvData,
+      experience: prevCvData.experience.filter((exp) => exp.id !== id),
+    }));
+  }
+
   function handleAddExperience() {
     setIsEditing(false);
     setEditingId(null);
@@ -107,6 +114,10 @@ function ExperienceForm({ cvData, setCvData }) {
 
               <button type="button" onClick={() => handleEdit(exp)}>
                 Edit
+              </button>
+
+              <button type="button" onClick={() => handleDelete(exp.id)}>
+                Delete
               </button>
             </div>
           ))}
