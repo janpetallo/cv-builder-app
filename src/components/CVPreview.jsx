@@ -6,10 +6,17 @@ function CVPreview({ cvData }) {
       <div className="cvHeader">
         <div className="name">{cvData.generalInfo.name}</div>
         <div>
-          {cvData.generalInfo.address && <span>{cvData.generalInfo.address}</span>}
-          {cvData.generalInfo.address && (cvData.generalInfo.email || cvData.generalInfo.phone) && <span> | </span>}
+          {cvData.generalInfo.address && (
+            <span>{cvData.generalInfo.address}</span>
+          )}
+          {cvData.generalInfo.address &&
+            (cvData.generalInfo.email || cvData.generalInfo.phone) && (
+              <span> | </span>
+            )}
           {cvData.generalInfo.email && <span>{cvData.generalInfo.email}</span>}
-          {cvData.generalInfo.email && cvData.generalInfo.phone && <span> | </span>}
+          {cvData.generalInfo.email && cvData.generalInfo.phone && (
+            <span> | </span>
+          )}
           {cvData.generalInfo.phone && <span>{cvData.generalInfo.phone}</span>}
         </div>
       </div>
@@ -32,9 +39,11 @@ function CVPreview({ cvData }) {
                   </div>
                 </div>
                 <ul>
-                  {exp.descriptions.map((desc) => (
-                    <li key={desc.id}>{desc.text}</li>
-                  ))}
+                  {exp.descriptions
+                    .filter((desc) => desc.text.trim() !== "")
+                    .map((desc) => (
+                      <li key={desc.id}>{desc.text}</li>
+                    ))}
                 </ul>
               </div>
             ))}
