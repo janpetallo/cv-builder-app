@@ -21,6 +21,12 @@
 
 }
 
+textarea {
+  width:90%;
+}
+
+
+
 button {
   padding: 8px;
   border: none;
