@@ -1,8 +1,3 @@
-p {
-  margin: 0;
-  padding: 0;
-}
-
 .savedExperience {
   font-size: 0.8rem;
 
@@ -16,34 +11,30 @@ p {
 }
 
 .savedExperience .company {
-    font-size: 0.7rem;
+  font-size: 0.7rem;
 }
 
 .savedExperience .buttonContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
 }
 
 .savedExperience button,
 .descriptionContainer button {
-    padding: 0;
-    background-color: transparent;
+  padding: 0;
+  background-color: transparent;
 }
 
 .savedExperience img:hover,
 .descriptionContainer img:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
+  filter: brightness(0.8);
 }
 
 .descriptionContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
-
-
-

@@ -35,7 +35,13 @@ button:hover {
   background-color: #424141;
 }
 
-h4 {
+h4,
+h5 {
   margin: 0;
   text-align: center;
+}
+
+p {
+  margin: 0;
+  padding: 0;
 }

@@ -1,8 +1,3 @@
-p {
-  margin: 0;
-  padding: 0;
-}
-
 .savedEducation {
   font-size: 0.8rem;
 
@@ -33,4 +28,5 @@ p {
 
 .savedEducation img:hover {
   transform: scale(1.1);
+  filter: brightness(0.8);
 }
