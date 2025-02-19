@@ -115,7 +115,7 @@ function EducationForm({ cvData, setCvData }) {
       {showForm && (
         <>
           <h5>{isEditing ? "Edit Education" : "Add Education"}</h5>
-          <form className="formContainer" onSubmit={handleSubmit}>
+          <form className="form" onSubmit={handleSubmit}>
             <input
               className="inputField"
               name="school"

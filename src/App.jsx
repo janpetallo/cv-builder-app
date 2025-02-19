@@ -66,7 +66,9 @@ function App() {
         )}
       </div>
 
-      <CVPreview cvData={cvData} />
+      <div className="previewContainer">
+        <CVPreview cvData={cvData} />
+      </div>
     </div>
   );
 }

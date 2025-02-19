@@ -14,7 +14,7 @@ function GeneralInfoForm({ cvData, setCvData }) {
   return (
     <>
       <h4>Personal Information</h4>
-      <form className="formContainer">
+      <form className="form">
         <input
           className="inputField"
           name="name"

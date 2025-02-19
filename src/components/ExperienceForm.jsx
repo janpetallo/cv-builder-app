@@ -146,7 +146,7 @@ function ExperienceForm({ cvData, setCvData }) {
       {showForm && (
         <>
           <h5>{isEditing ? "Edit Experience" : "Add Experience"}</h5>
-          <form className="formContainer" onSubmit={handleSubmit}>
+          <form className="form" onSubmit={handleSubmit}>
             <input
               className="inputField"
               name="company"
