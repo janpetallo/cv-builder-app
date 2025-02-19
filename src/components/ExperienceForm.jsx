@@ -183,9 +183,8 @@ function ExperienceForm({ cvData, setCvData }) {
               placeholder="End Date"
             />
             {experience.descriptions.map((description) => (
-              <div className="descriptionContainer">
+              <div className="descriptionContainer" key={description.id}>
                 <textarea
-                  key={description.id}
                   className="inputField"
                   value={description.text}
                   onChange={(e) => handleDescriptionChange(e, description.id)}
