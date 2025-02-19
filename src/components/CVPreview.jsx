@@ -31,11 +31,15 @@ function CVPreview({ cvData }) {
                   <div className="position-company">
                     <div className="position">{exp.position}</div>
                     <div className="company">
-                      {exp.company}, {exp.location}
+                      {exp.company && <span>{exp.company}</span>}
+                      {exp.company && exp.location && <span>, </span>}
+                      {exp.location && <span>{exp.location}</span>}
                     </div>
                   </div>
                   <div>
-                    {exp.startDate} - {exp.endDate}
+                    {exp.startDate && <span>{exp.startDate}</span>}
+                    {exp.startDate && exp.endDate && <span> - </span>}
+                    {exp.endDate && <span>{exp.endDate}</span>}
                   </div>
                 </div>
                 <ul>
@@ -60,11 +64,15 @@ function CVPreview({ cvData }) {
                   <div className="program-school">
                     <div className="program">{edu.program}</div>
                     <div className="school">
-                      {edu.school}, {edu.location}
+                      {edu.school && <span>{edu.school}</span>}
+                      {edu.school && edu.location && <span>, </span>}
+                      {edu.location && <span>{edu.location}</span>}
                     </div>
                   </div>
                   <div>
-                    {edu.startDate} - {edu.endDate}
+                    {edu.startDate && <span>{edu.startDate}</span>}
+                    {edu.startDate && edu.endDate && <span> - </span>}
+                    {edu.endDate && <span>{edu.endDate}</span>}
                   </div>
                 </div>
               </div>
