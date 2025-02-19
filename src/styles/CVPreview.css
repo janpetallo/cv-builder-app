@@ -56,3 +56,33 @@ ul {
 .school {
     font-style: italic;
 }
+
+
+
+@media (max-width: 768px) {
+    .cvContainer {
+        width: 100%;
+        min-width: unset;
+        padding: 10px;
+    }
+
+    .name {
+        font-size: 1rem;
+    }
+
+    .experienceHeader,
+    .educationHeader {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .cvContainer {
+        padding: 5px;
+    }
+
+    .name {
+        font-size: 0.9rem;
+    }
+}

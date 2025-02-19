@@ -23,7 +23,7 @@ function CVPreview({ cvData }) {
       <div className="cvBody">
         {cvData.experience.length > 0 && (
           <div className="sectionContainer">
-            <div className="sectionHeader">Work Experience</div>
+            <div className="sectionHeader">WORK EXPERIENCE</div>
             <hr className="horizontalLine" />
             {cvData.experience.map((exp) => (
               <div className="experience" key={exp.id}>
@@ -56,7 +56,7 @@ function CVPreview({ cvData }) {
 
         {cvData.education.length > 0 && (
           <div className="sectionContainer">
-            <div className="sectionHeader">Education</div>
+            <div className="sectionHeader">EDUCATION</div>
             <hr className="horizontalLine" />
             {cvData.education.map((edu) => (
               <div className="education" key={edu.id}>
