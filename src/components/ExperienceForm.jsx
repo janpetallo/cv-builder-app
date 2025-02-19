@@ -9,6 +9,7 @@ function ExperienceForm({ cvData, setCvData }) {
     id: crypto.randomUUID(),
     company: "",
     position: "",
+    location: "",
     startDate: "",
     endDate: "",
     descriptions: [{ id: crypto.randomUUID(), text: "" }],
@@ -39,6 +40,7 @@ function ExperienceForm({ cvData, setCvData }) {
       id: crypto.randomUUID(),
       company: "",
       position: "",
+      location: "",
       startDate: "",
       endDate: "",
       descriptions: [{ id: crypto.randomUUID(), text: "" }],
@@ -103,6 +105,7 @@ function ExperienceForm({ cvData, setCvData }) {
       id: crypto.randomUUID(),
       company: "",
       position: "",
+      location: "",
       startDate: "",
       endDate: "",
       descriptions: [{ id: crypto.randomUUID(), text: "" }],
@@ -154,6 +157,13 @@ function ExperienceForm({ cvData, setCvData }) {
               value={experience.position}
               onChange={handleChange}
               placeholder="Position"
+            />
+            <input
+              className="inputField"
+              name="location"
+              value={experience.location}
+              onChange={handleChange}
+              placeholder="Location"
             />
             <input
               className="inputField"

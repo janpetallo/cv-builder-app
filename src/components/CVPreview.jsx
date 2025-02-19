@@ -19,7 +19,9 @@ function CVPreview({ cvData }) {
               <div className="experienceHeader">
                 <div className="position-company">
                   <div className="position">{exp.position}</div>
-                  <div className="company">{exp.company}</div>
+                  <div className="company">
+                    {exp.company}, {exp.location}
+                  </div>
                 </div>
                 <div>
                   {exp.startDate} - {exp.endDate}
