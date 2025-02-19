@@ -134,10 +134,13 @@ function ExperienceForm({ cvData, setCvData }) {
               </div>
             </div>
           ))}
-          <button type="button" onClick={handleAddExperience}>
-            Add Experience
-          </button>
         </>
+      )}
+
+      {!showForm && (
+        <button type="button" onClick={handleAddExperience}>
+          Add Experience
+        </button>
       )}
 
       {showForm && (

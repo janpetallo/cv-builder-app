@@ -103,10 +103,13 @@ function EducationForm({ cvData, setCvData }) {
               </div>
             </div>
           ))}
-          <button type="button" onClick={handleAddEducation}>
-            Add Education
-          </button>
         </>
+      )}
+
+      {!showForm && (
+        <button type="button" onClick={handleAddEducation}>
+          Add Education
+        </button>
       )}
 
       {showForm && (
