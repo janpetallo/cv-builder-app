@@ -33,6 +33,25 @@ function CVPreview({ cvData }) {
             </div>
           ))}
         </div>
+        <div className="sectionContainer">
+          <div className="sectionHeader">Education</div>
+          <hr className="horizontalLine" />
+          {cvData.education.map((edu) => (
+            <div className="education" key={edu.id}>
+              <div className="educationeHeader">
+                <div className="program-school">
+                  <div className="program">{edu.program}</div>
+                  <div className="school">
+                    {edu.school}, {edu.location}
+                  </div>
+                </div>
+                <div>
+                  {edu.startDate} - {edu.endDate}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

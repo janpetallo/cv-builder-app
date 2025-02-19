@@ -34,20 +34,24 @@ ul {
     margin: 5px 0;
 }
 
-.experience {
+.experience,
+.education {
     margin: 10px 0;
 }
 
-.experienceHeader {
+.experienceHeader,
+.educationeHeader {
     display: flex;
     justify-content: space-between;
     align-items:flex-start;
 }
 
-.position {
+.position,
+.program {
     font-weight: bold;
 }
 
-.company {
+.company,
+.school {
     font-style: italic;
 }
