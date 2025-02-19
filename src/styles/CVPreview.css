@@ -1,12 +1,13 @@
 .cvContainer {
-    width: min(1000px, 100%);
-    height: 100vh;   
+    width: min(8.5in, 100%);
+    min-width: 500px;
+    height: min(11in, 100vh);
     padding: 20px;
     border: 1px solid #ccc;
     background-color: white;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     color: #333;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 
     display: flex;
     flex-direction: column;
