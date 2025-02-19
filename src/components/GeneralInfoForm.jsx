@@ -27,7 +27,7 @@ function GeneralInfoForm({ cvData, setCvData }) {
           name="address"
           value={cvData.generalInfo.address}
           onChange={handleChange}
-          placeholder="Address"
+          placeholder="City, Country"
         />
         <input
           className="inputField"

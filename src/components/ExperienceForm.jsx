@@ -166,7 +166,7 @@ function ExperienceForm({ cvData, setCvData }) {
               name="location"
               value={experience.location}
               onChange={handleChange}
-              placeholder="Location"
+              placeholder="City, Country"
             />
             <input
               className="inputField"

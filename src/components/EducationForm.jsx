@@ -135,7 +135,7 @@ function EducationForm({ cvData, setCvData }) {
               name="location"
               value={education.location}
               onChange={handleChange}
-              placeholder="Location"
+              placeholder="City, Country"
             />
             <input
               className="inputField"

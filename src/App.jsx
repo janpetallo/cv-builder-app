@@ -58,7 +58,7 @@ function App() {
           <div className="formSection">
             <EducationForm cvData={cvData} setCvData={setCvData} />
             <div className="buttonContainer">
-            <button onClick={handlePrevious}>
+              <button onClick={handlePrevious}>
                 <img src={previousIcon} alt="Previous" />
               </button>
             </div>
