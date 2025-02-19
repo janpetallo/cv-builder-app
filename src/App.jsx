@@ -1,7 +1,7 @@
 import { useState } from "react";
 import GeneralInfoForm from "./components/GeneralInfoForm";
 import ExperienceForm from "./components/ExperienceForm";
-// import EducationForm from "./components/EducationForm";
+import EducationForm from "./components/EducationForm";
 import CVPreview from "./components/CVPreview";
 import "./App.css";
 
@@ -54,7 +54,7 @@ function App() {
           </div>
         )}
 
-        {/* {currentSection === 3 && (
+        {currentSection === 3 && (
           <div className="formSection">
             <EducationForm cvData={cvData} setCvData={setCvData} />
             <div className="buttonContainer">
@@ -63,7 +63,7 @@ function App() {
               </button>
             </div>
           </div>
-        )} */}
+        )}
       </div>
 
       <CVPreview cvData={cvData} />

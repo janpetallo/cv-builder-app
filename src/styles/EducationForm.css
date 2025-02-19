@@ -1,0 +1,36 @@
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.savedEducation {
+  font-size: 0.8rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.savedEducation .company {
+  font-size: 0.7rem;
+}
+
+.savedEducation .buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+
+.savedEducation button {
+  padding: 0;
+  background-color: transparent;
+}
+
+.savedEducation img:hover {
+  transform: scale(1.1);
+}
