@@ -1,8 +1,28 @@
 import "../styles/CVPreview.css";
 
+import editIcon from "../assets/edit2.svg";
+
 function CVPreview({ cvData }) {
+  function hasInput() {
+    const { generalInfo, experience, education } = cvData;
+    return (
+      generalInfo.name ||
+      generalInfo.address ||
+      generalInfo.email ||
+      generalInfo.phone ||
+      experience.length > 0 ||
+      education.length > 0
+    );
+  }
+
   return (
     <div className="cvContainer">
+      {!hasInput() && (
+        <div style={{ textAlign: "center" }}>
+          <img src={editIcon} alt="Edit" style={{ width: "5rem" }} />
+          <h1>Start Building Your CV</h1>
+        </div>
+      )}
       <div className="cvHeader">
         <div className="name">{cvData.generalInfo.name}</div>
         <div>
