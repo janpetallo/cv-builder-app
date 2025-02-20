@@ -23,8 +23,8 @@ function SkillsForm({ cvData, setCvData }) {
 
   function handleDelete(id) {
     setCvData((prevCvData) => ({
-        ...prevCvData,
-        skills: prevCvData.skills.filter((sk) => sk.id !== id),
+      ...prevCvData,
+      skills: prevCvData.skills.filter((sk) => sk.id !== id),
     }));
   }
 
