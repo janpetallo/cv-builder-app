@@ -42,11 +42,19 @@ function SkillsForm({ cvData, setCvData }) {
   function handleSubmit(e) {
     e.preventDefault();
     if (isEditing) {
+      setCvData((prevCvData) => ({
+        ...prevCvData,
+        skills: prevCvData.skills.map((sk) =>
+          skill.id === editingId ? skill : sk
+        ),
+      }));
     } else {
       setCvData((prevCvData) => ({
         ...prevCvData,
         skills: [...prevCvData.skills, skill],
       }));
+      setIsEditing(false);
+      setEditingId(null);
     }
     setSkill({
       id: crypto.randomUUID(),
@@ -57,6 +65,25 @@ function SkillsForm({ cvData, setCvData }) {
 
   return (
     <>
+      <h4>Skills</h4>
+      {cvData.skills.length > 0 && (
+        <>
+          {cvData.skills.map((sk) => (
+            <div key={sk.id} className="savedSkill">
+              <div className="skill">{sk.description}</div>
+
+              <div className="buttonContainer">
+                <button type="button" onClick={() => handleEdit(sk)}>
+                  <img src={editIcon} alt="Edit" />
+                </button>
+                <button type="button" onClick={() => handleDelete(sk.id)}>
+                  <img src={deleteIcon} alt="Delete" />
+                </button>
+              </div>
+            </div>
+          ))}
+        </>
+      )}
       {!showForm && (
         <button type="button" onClick={handleAddSkill}>
           Add Skill
