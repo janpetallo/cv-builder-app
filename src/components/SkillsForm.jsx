@@ -72,7 +72,7 @@ function SkillsForm({ cvData, setCvData }) {
 
   return (
     <>
-      <h4>Skills</h4>
+      <h4>SKILLS</h4>
       {cvData.skills.length > 0 && (
         <>
           {cvData.skills.map((sk) => (

@@ -84,7 +84,7 @@ function EducationForm({ cvData, setCvData }) {
 
   return (
     <>
-      <h4>Education</h4>
+      <h4>EDUCATION</h4>
       {cvData.education.length > 0 && (
         <>
           {cvData.education.map((edu) => (
