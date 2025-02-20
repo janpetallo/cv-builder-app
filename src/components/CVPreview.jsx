@@ -41,6 +41,18 @@ function CVPreview({ cvData }) {
         </div>
       </div>
       <div className="cvBody">
+        {cvData.skills.length > 0 && (
+          <div className="sectionContainer">
+            <div className="sectionHeader">SKILLS</div>
+            <hr className="horizontalLine" />
+            <ul>
+              {cvData.skills.filter((skill) => skill.description.trim() !== "").map((skill) => (
+                <li className="skill" key={skill.id}>{skill.description}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         {cvData.experience.length > 0 && (
           <div className="sectionContainer">
             <div className="sectionHeader">WORK EXPERIENCE</div>
