@@ -116,7 +116,7 @@ function ExperienceForm({ cvData, setCvData }) {
   return (
     <>
       <h4>Work Experience</h4>
-      {cvData.experience.length >= 0 && (
+      {cvData.experience.length > 0 && (
         <>
           {cvData.experience.map((exp) => (
             <div key={exp.id} className="savedExperience">
