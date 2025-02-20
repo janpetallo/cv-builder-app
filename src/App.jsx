@@ -1,5 +1,6 @@
 import { useState } from "react";
 import GeneralInfoForm from "./components/GeneralInfoForm";
+import SkillsForm from "./components/SkillsForm"
 import ExperienceForm from "./components/ExperienceForm";
 import EducationForm from "./components/EducationForm";
 import CVPreview from "./components/CVPreview";
@@ -11,6 +12,7 @@ import nextIcon from "./assets/next.svg";
 function App() {
   const [cvData, setCvData] = useState({
     generalInfo: { name: "", address: "", email: "", phone: "" },
+    skills: [],
     experience: [],
     education: [],
   });
@@ -42,7 +44,7 @@ function App() {
 
         {currentSection === 2 && (
           <div className="formSection">
-            <ExperienceForm cvData={cvData} setCvData={setCvData} />
+            <SkillsForm cvData={cvData} setCvData={setCvData} />
             <div className="buttonContainer">
               <button onClick={handlePrevious}>
                 <img src={previousIcon} alt="Previous" />
@@ -55,6 +57,20 @@ function App() {
         )}
 
         {currentSection === 3 && (
+          <div className="formSection">
+            <ExperienceForm cvData={cvData} setCvData={setCvData} />
+            <div className="buttonContainer">
+              <button onClick={handlePrevious}>
+                <img src={previousIcon} alt="Previous" />
+              </button>
+              <button onClick={handleNext}>
+                <img src={nextIcon} alt="Next" />
+              </button>
+            </div>
+          </div>
+        )}
+
+        {currentSection === 4 && (
           <div className="formSection">
             <EducationForm cvData={cvData} setCvData={setCvData} />
             <div className="buttonContainer">
