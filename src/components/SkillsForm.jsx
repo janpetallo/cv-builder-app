@@ -21,6 +21,13 @@ function SkillsForm({ cvData, setCvData }) {
     setShowForm(true);
   }
 
+  function handleDelete(id) {
+    setCvData((prevCvData) => ({
+        ...prevCvData,
+        skills: prevCvData.skills.filter((sk) => sk.id !== id),
+    }));
+  }
+
   function handleAddSkill() {
     setIsEditing(false);
     setEditingId(null);
