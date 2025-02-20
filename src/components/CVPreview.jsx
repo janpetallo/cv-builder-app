@@ -92,7 +92,7 @@ function CVPreview({ cvData }) {
             <hr className="horizontalLine" />
             {cvData.education.map((edu) => (
               <div className="education" key={edu.id}>
-                <div className="educationeHeader">
+                <div className="educationHeader">
                   <div className="program-school">
                     <div className="program">{edu.program}</div>
                     <div className="school">
