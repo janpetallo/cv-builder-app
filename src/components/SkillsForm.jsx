@@ -15,7 +15,7 @@ function SkillsForm({ cvData, setCvData }) {
   const [showForm, setShowForm] = useState(false);
 
   function handleEdit(skill) {
-    setExperience(skill);
+    setSkill(skill);
     setIsEditing(true);
     setEditingId(skill.id);
     setShowForm(true);
