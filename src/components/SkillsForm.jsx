@@ -52,7 +52,7 @@ function SkillsForm({ cvData, setCvData }) {
       setCvData((prevCvData) => ({
         ...prevCvData,
         skills: prevCvData.skills.map((sk) =>
-          skill.id === editingId ? skill : sk
+          sk.id === editingId ? skill : sk
         ),
       }));
     } else {
