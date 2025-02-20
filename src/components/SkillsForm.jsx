@@ -102,7 +102,7 @@ function SkillsForm({ cvData, setCvData }) {
           <h5>{isEditing ? "Edit Skill" : "Add Skill"}</h5>
           <form className="form" onSubmit={handleSubmit}>
             <textarea
-              className="inputField"
+              className="inputField skillTextArea"
               name="description"
               value={skill.description}
               onChange={(e) => handleChange(e)}
