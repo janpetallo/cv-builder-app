@@ -4,6 +4,8 @@ import { useState } from "react";
 import editIcon from "../assets/edit.svg";
 import deleteIcon from "../assets/delete.svg";
 
+import PropTypes from "prop-types";
+
 function ExperienceForm({ cvData, setCvData }) {
   const [experience, setExperience] = useState({
     id: crypto.randomUUID(),
@@ -210,5 +212,28 @@ function ExperienceForm({ cvData, setCvData }) {
     </>
   );
 }
+
+ExperienceForm.propTypes = {
+  cvData: PropTypes.shape({
+    experience: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        company: PropTypes.string.isRequired,
+        position: PropTypes.string.isRequired,
+        location: PropTypes.string.isRequired,
+        startDate: PropTypes.string.isRequired,
+        endDate: PropTypes.string.isRequired,
+        descriptions: PropTypes.arrayOf(
+          PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            text: PropTypes.string.isRequired,
+          })
+        ),
+      })
+    ).isRequired,
+  }).isRequired,
+  setCvData: PropTypes.func.isRequired,
+};
+
 
 export default ExperienceForm;

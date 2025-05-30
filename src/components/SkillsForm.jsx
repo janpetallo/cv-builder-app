@@ -4,6 +4,8 @@ import { useState } from "react";
 import editIcon from "../assets/edit.svg";
 import deleteIcon from "../assets/delete.svg";
 
+import PropTypes from "prop-types";
+
 function SkillsForm({ cvData, setCvData }) {
   const [skill, setSkill] = useState({
     id: crypto.randomUUID(),
@@ -117,5 +119,17 @@ function SkillsForm({ cvData, setCvData }) {
     </>
   );
 }
+
+SkillsForm.propTypes = {
+  cvData: PropTypes.shape({
+    skills: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+  }).isRequired,
+  setCvData: PropTypes.func.isRequired,
+}; 
 
 export default SkillsForm;

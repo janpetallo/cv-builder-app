@@ -2,6 +2,8 @@ import "../styles/CVPreview.css";
 
 import editIcon from "../assets/edit2.svg";
 
+import PropTypes from "prop-types";
+
 function CVPreview({ cvData }) {
   function hasInput() {
     const { generalInfo, experience, education } = cvData;
@@ -115,5 +117,48 @@ function CVPreview({ cvData }) {
     </div>
   );
 }
+
+CVPreview.propTypes = {
+  cvData: PropTypes.shape({
+    generalInfo: PropTypes.shape({
+      name: PropTypes.string,
+      address: PropTypes.string,
+      email: PropTypes.string,
+      phone: PropTypes.string,
+    }),
+    skills: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string,
+        description: PropTypes.string,
+      })
+    ),
+    experience: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string,
+        position: PropTypes.string,
+        company: PropTypes.string,
+        location: PropTypes.string,
+        startDate: PropTypes.string,
+        endDate: PropTypes.string,
+        descriptions: PropTypes.arrayOf(
+          PropTypes.shape({
+            id: PropTypes.string,
+            text: PropTypes.string,
+          })
+        ),
+      })
+    ),
+    education: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string,
+        program: PropTypes.string,
+        school: PropTypes.string,
+        location: PropTypes.string,
+        startDate: PropTypes.string,
+        endDate: PropTypes.string,
+      })
+    ),
+  }).isRequired,
+};
 
 export default CVPreview;

@@ -4,6 +4,8 @@ import { useState } from "react";
 import editIcon from "../assets/edit.svg";
 import deleteIcon from "../assets/delete.svg";
 
+import PropTypes from "prop-types";
+
 function EducationForm({ cvData, setCvData }) {
   const [education, setEducation] = useState({
     id: crypto.randomUUID(),
@@ -160,5 +162,22 @@ function EducationForm({ cvData, setCvData }) {
     </>
   );
 }
+
+
+EducationForm.propTypes = {
+  cvData: PropTypes.shape({
+    education: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        school: PropTypes.string.isRequired,
+        program: PropTypes.string.isRequired,
+        location: PropTypes.string.isRequired,
+        startDate: PropTypes.string.isRequired,
+        endDate: PropTypes.string.isRequired,
+      })
+    ),
+  }).isRequired,
+  setCvData: PropTypes.func.isRequired,
+};
 
 export default EducationForm;

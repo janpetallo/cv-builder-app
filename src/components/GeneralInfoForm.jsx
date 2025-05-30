@@ -1,4 +1,5 @@
 import "../styles/GeneralInfoForm.css";
+import PropTypes from "prop-types";
 
 function GeneralInfoForm({ cvData, setCvData }) {
   function handleChange(e) {
@@ -47,5 +48,18 @@ function GeneralInfoForm({ cvData, setCvData }) {
     </>
   );
 }
+
+GeneralInfoForm.propTypes = {
+  cvData: PropTypes.shape({
+    generalInfo: PropTypes.shape({
+      name: PropTypes.string,
+      address: PropTypes.string,
+      email: PropTypes.string,
+      phone: PropTypes.string,
+    }).isRequired,
+  }).isRequired,
+  setCvData: PropTypes.func.isRequired,
+};
+
 
 export default GeneralInfoForm;
